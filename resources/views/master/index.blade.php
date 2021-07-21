@@ -8,16 +8,26 @@
                 <div class="card-header">All Masters</div>
 
                 <div class="card-body">
-                    @foreach ($masters as $master)
-                    <a href="{{route('master.edit',[$master])}}">{{$master->name}}
-                        {{$master->surname}}</a>
-                    <form method="POST" action="{{route('master.destroy', $master)}}">
-                        @csrf
-                        <button type="submit">DELETE</button>
-                    </form>
 
-                    <br>
-                    @endforeach
+                    <ul class="list-group">
+
+                        @foreach ($masters as $master)
+                        <li class="list-group-item">
+                            <div class="list-container">
+                                <div class="list-container__content">
+                                {{$master->name}} {{$master->surname}}
+                                </div>
+                                <div class="list-container__buttons">
+                                <a href="{{route('master.edit',[$master])}}">Edit</a>
+                                    <form method="POST" action="{{route('master.destroy', $master)}}">
+                                        @csrf
+                                        <button type="submit">DELETE</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
