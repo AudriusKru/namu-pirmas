@@ -18,10 +18,10 @@
                                 {{$master->name}} {{$master->surname}}
                                 </div>
                                 <div class="list-container__buttons">
-                                <a href="{{route('master.edit',[$master])}}">Edit</a>
+                                <a href="{{route('master.edit',[$master])}}" class="btn btn-success">Edit</a>
                                     <form method="POST" action="{{route('master.destroy', $master)}}">
                                         @csrf
-                                        <button type="submit">DELETE</button>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </div>
                             </div>

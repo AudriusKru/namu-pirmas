@@ -231,6 +231,18 @@ label {
   justify-content: space-between;
   align-items: center;
 }
+.list-container__content {
+  letter-spacing: 0.2px;
+}
+.list-container__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-container__buttons * {
+  margin: 5px;
+}
+
 
 
 
