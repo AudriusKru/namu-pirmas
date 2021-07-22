@@ -4,13 +4,24 @@
     align-items: center;
     &__content {
         letter-spacing: .2px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        &__master {
+            color: gray;
+            font-style: italic;
+        }
+        &__outfit {
+            letter-spacing: normal;
+        }
     }
     &__buttons { 
         display: flex;
         justify-content: center;
         align-items: center;
         * {
-            margin: 5px;
+            margin: 0 5px;
         }
     }
 }
