@@ -7,11 +7,28 @@
                 <div class="card-header">Edit Outfit</div>
                 <div class="card-body">
                     <form method="POST" action="{{route('outfit.update',[$outfit])}}">
-                        Type: <input type="text" name="outfit_type" value="{{$outfit->type}}">
-                        Color: <input type="text" name="outfit_color" value="{{$outfit->color}}">
-                        Size: <input type="text" name="outfit_size" value="{{$outfit->size}}">
-                        About: <textarea name="outfit_about">{{$outfit->about}}</textarea>
-                        <select name="master_id">
+                        <div class="form-group">
+                            <label>Type:</label>
+                            <input type="text" class="form-control" name="outfit_type" value="{{$outfit->type}}">
+                            <small class="form-text text-muted">Enter outfits type.</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Color:</label>
+                            <input type="text" class="form-control" name="outfit_color" value="{{$outfit->color}}">
+                            <small class="form-text text-muted">Which color.</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Size:</label>
+                            <input type="text" class="form-control" name="outfit_size" value="{{$outfit->size}}">
+                            <small class="form-text text-muted">Outfit size.</small>
+                        </div>
+                        <div class="form-group">
+                            <label>About:</label>
+                            <textarea name="outfit_about" class="form-control" id="summernote">{{$outfit->about}}</textarea>
+                            <small class="form-text text-muted">About outfit.</small>
+                        </div>
+                         <div class="form-group">
+                        <select name="master_id" class="form-control">
                             @foreach ($masters as $master)
                             <option value="{{$master->id}}" @if($master->id == $outfit->master_id)
                                 selected @endif>
@@ -19,8 +36,10 @@
                             </option>
                             @endforeach
                         </select>
+                        <small class="form-text text-muted">Select Master from the list.</small>
+                        </div>
                         @csrf
-                        <button type="submit">EDIT</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </form>
                 </div>
             </div>

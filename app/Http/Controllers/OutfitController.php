@@ -6,6 +6,7 @@ use App\Models\Master;
 
 use App\Models\Outfit;
 use Illuminate\Http\Request;
+use Validator;
 
 class OutfitController extends Controller
 {
@@ -40,6 +41,21 @@ class OutfitController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),
+            [
+                'outfit_type' => ['required', 'min:3', 'max:50'],
+                'outfit_color' => ['required', 'min:3', 'max:20'],
+                'outfit_size' => ['required', 'integer', 'min:5', 'max:22'],
+                'outfit_about' => ['required'],
+                'master_id' => ['required', 'integer', 'min:1'],
+            ]
+        );
+
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+        
         $outfit = new Outfit;
         $outfit->type = $request->outfit_type;
         $outfit->color = $request->outfit_color;
@@ -47,7 +63,7 @@ class OutfitController extends Controller
         $outfit->about = $request->outfit_about;
         $outfit->master_id = $request->master_id;
         $outfit->save();
-        return redirect()->route('outfit.index');
+        return redirect()->route('outfit.index')->with('success_message', 'New Outfit Has arrived.');
     }
 
     /**
@@ -88,7 +104,7 @@ class OutfitController extends Controller
         $outfit->about = $request->outfit_about;
         $outfit->master_id = $request->master_id;
         $outfit->save();
-        return redirect()->route('outfit.index');
+        return redirect()->route('outfit.index')->with('success_message', 'Der outfit was edited.');
     }
 
     /**
@@ -100,7 +116,7 @@ class OutfitController extends Controller
     public function destroy(Outfit $outfit)
     {
         $outfit->delete();
-        return redirect()->route('outfit.index');
+        return redirect()->route('outfit.index')->with('success_message', 'Outfit was deleted.');
 
     }
 }
