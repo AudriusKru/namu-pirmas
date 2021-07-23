@@ -100,7 +100,7 @@ class OutfitController extends Controller
     public function destroy(Outfit $outfit)
     {
         $outfit->delete();
-        return redirect()->route('outfit.index')>with('success_message', 'Outfit was deleted.');
+        return redirect()->route('outfit.index')->with('success_message', 'Outfit was deleted.');
 
     }
 }
