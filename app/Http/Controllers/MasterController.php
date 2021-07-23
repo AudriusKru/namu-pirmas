@@ -89,7 +89,7 @@ class MasterController extends Controller
     public function destroy(Master $master)
     {
         if($master->masterOfOutfit->count()){
-            return redirect()->back()->with('success_message', 'There is job to do. Can\'t delete .');            }
+            return redirect()->back()->with('info_message', 'There is job to do. Can\'t delete .');            }
             $master->delete();
             return redirect()->route('master.index')->with('success_message', 'Master was deleted.');
     }
