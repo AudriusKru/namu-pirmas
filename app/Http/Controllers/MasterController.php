@@ -77,7 +77,7 @@ class MasterController extends Controller
         $master->name = $request->master_name;
         $master->surname = $request->master_surname;
         $master->save();
-        return redirect()->route('master.index');
+        return redirect()->route('master.index')->with('success_message', 'Der master was edited.');
     }
 
     /**
@@ -89,9 +89,8 @@ class MasterController extends Controller
     public function destroy(Master $master)
     {
         if($master->masterOfOutfit->count()){
-            return 'Trinti negalima, nes turi knygų';
-            }
+            return redirect()->back()->with('success_message', 'There is job to do. Can\'t delete .');            }
             $master->delete();
-            return redirect()->route('master.index');
+            return redirect()->route('master.index')->with('success_message', 'Master was deleted.');
     }
 }
