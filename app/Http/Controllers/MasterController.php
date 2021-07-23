@@ -40,7 +40,7 @@ class MasterController extends Controller
         $master->name = $request->master_name;
         $master->surname = $request->master_surname;
         $master->save();
-        return redirect()->route('master.index');
+        return redirect()->route('master.index')->with('success_message', 'New Master Has arrived.');
     }
 
     /**
