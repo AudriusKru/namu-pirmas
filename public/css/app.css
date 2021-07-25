@@ -10037,6 +10037,7 @@ h3 {
 }
 
 fieldset {
+  width: 150px;
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
@@ -10049,7 +10050,7 @@ fieldset label {
   font-size: 15px;
 }
 fieldset input {
-  margin: 0 25px 0 0;
+  margin: 0 5px 0 0;
 }
 
 legend {
@@ -10060,11 +10061,11 @@ legend {
   text-align: center;
 }
 
-.sort-form {
+sort-form {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.sort-form a {
+sort-form a {
   margin-left: 15px;
 }

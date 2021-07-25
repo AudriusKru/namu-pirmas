@@ -11,28 +11,29 @@
                             <fieldset>
                                 <legend>Sort by:</legend>
                                 <div>
-                                    <label>Type</label>
                                     <input type="radio" name="sort_by" value="type" @if('type'==$sort) checked @endif>
+                                    <label>Type</label>
                                 </div>
                                 <div>
-                                    <label>Size</label>
                                     <input type="radio" name="sort_by" value="size" @if('size'==$sort) checked @endif>
+                                    <label>Size</label>
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <legend>Direction:</legend>
                                 <div>
-                                    <label>Asc</label>
                                     <input type="radio" name="dir" value="asc" @if('asc'==$dir) checked @endif>
+                                    <label>Asc</label>
                                 </div>
                                 <div>
-                                    <label>Desc</label>
                                     <input type="radio" name="dir" value="desc" @if('desc'==$dir) checked @endif>
+                                    <label>Desc</label>
                                 </div>
                             </fieldset>
                             <button type="submit" class="btn btn-primary">Sort</button>
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
                         </form>
+
                         <form action="{{route('outfit.index')}}" method="get" class="sort-form">
                             <fieldset>
                                 <legend>Filter by:</legend>
@@ -50,6 +51,7 @@
                             <button type="submit" class="btn btn-primary">Filter</button>
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
                         </form>
+
                         <form action="{{route('outfit.index')}}" method="get" class="sort-form">
                             <fieldset>
                                 <legend>Search by type:</legend>
