@@ -33,6 +33,21 @@
                             <button type="submit" class="btn btn-primary">Sort</button>
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
                         </form>
+                        <form action="{{route('outfit.index')}}" method="get" class="sort-form">
+                            <fieldset>
+                                <legend>Filter by:</legend>
+                                <div class="form-group">
+                                    <select name="master_id" class="form-control" value="{{old('master_id')}}">
+                                        @foreach ($masters as $master)
+                                        <option value="{{$master->id}}">{{$master->name}} {{$master->surname}}</option>
+                                        @endforeach
+                                    </select>
+                                    <small class="form-text text-muted">Select Master from the list.</small>
+                                    </div>
+                            </fieldset>
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                            <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
+                        </form>
                     </div>
                 </div>
                 <div class="card-body">

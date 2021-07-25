@@ -21,6 +21,7 @@ class OutfitController extends Controller
         // $outfits = Outfit::orderBy('size', 'desc')->get();
         $dir = 'asc';
         $sort = 'type';
+        $masters = Master::all();
 
         if($request->sort_by && $request->dir) {
             if('type' == $request->sort_by && 'asc' == $request->dir) {
@@ -43,13 +44,22 @@ class OutfitController extends Controller
                 $outfits = Outfit::all();
             }
         }
+        // filtraimas
+
+        elseif ($request->master_id){
+
+        }
+
         else {
             $outfits = Outfit::all();
         }
+
+
         return view('outfit.index', [
             'outfits' => $outfits,
             'dir' => $dir,
-            'sort' => $sort
+            'sort' => $sort,
+            'masters' => $masters
         ]);
     }
 
