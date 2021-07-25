@@ -54,11 +54,16 @@ class OutfitController extends Controller
         }
 
         // paieska
+    
 
-        elseif ($request->s){
+        elseif ($request->s ){
             $outfits = Outfit::where('type', 'like', '%' .$request->s. '%')->get();
-            $dewfaultMasters = $request->s;
+            $s = $request->s;
         }
+        elseif ($request->do_search ){
+            $outfits = Outfit::where('type', 'like', '')->get();
+        }
+        
 
         else {
             $outfits = Outfit::all();

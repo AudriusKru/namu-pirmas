@@ -57,7 +57,7 @@
                                 <input type="text" class="form-control" name="s" value="{{$s}}">
                                 </div>
                             </fieldset>
-                            <button type="submit" class="btn btn-primary">Search type</button>
+                            <button type="submit" name="do_search" value="1" class="btn btn-primary">Search type</button>
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
                         </form>
                     </div>
@@ -65,7 +65,8 @@
                 <div class="card-body">
                     <div class="subtitle">Outfits list:</div>
                     <ul class="list-group">
-                        @foreach ($outfits as $outfit)
+
+                        @forelse ($outfits as $outfit)
                         <li class="list-group-item">
 
                             <div class="list-container">
@@ -82,7 +83,9 @@
                                 </div>
                             </div>
                         </li>
-                        @endforeach
+                        @empty 
+                            <h3> no Results </h3>
+                        @endforelse
                     </ul>
 
                 </div>
