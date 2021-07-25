@@ -15,10 +15,42 @@ class OutfitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $outfits = Outfit::all();
-        return view('outfit.index', ['outfits' => $outfits]);
+        // $outfits = Outfit::all();
+        // $outfits = Outfit::orderBy('size', 'desc')->get();
+        $dir = 'asc';
+        $sort = 'type';
+
+        if($request->sort_by && $request->dir) {
+            if('type' == $request->sort_by && 'asc' == $request->dir) {
+                $outfits = Outfit::orderBy('type')->get();
+            }
+            elseif('type' == $request->sort_by && 'desc' == $request->dir) {
+                $outfits = Outfit::orderBy('type', 'desc')->get();
+                $dir = 'desc';
+            }
+            elseif('size' == $request->sort_by && 'asc' == $request->dir) {
+                $outfits = Outfit::orderBy('size')->get();
+                $sort = 'size';
+            }
+            elseif('size' == $request->sort_by && 'desc' == $request->dir) {
+                $outfits = Outfit::orderBy('size', 'desc')->get();
+                $dir = 'desc';
+                $sort = 'size';
+            }
+            else {
+                $outfits = Outfit::all();
+            }
+        }
+        else {
+            $outfits = Outfit::all();
+        }
+        return view('outfit.index', [
+            'outfits' => $outfits,
+            'dir' => $dir,
+            'sort' => $sort
+        ]);
     }
 
     /**
