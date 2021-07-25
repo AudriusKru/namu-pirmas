@@ -7,29 +7,29 @@
                 <div class="card-header">New Outfit</div>
 
                 <div class="card-body">
-                    <div class="form-group">
-                        <form method="POST" action="{{route('outfit.store')}}">
-                            <label>Type:</label>
-                            <input type="text" class="form-control" name="outfit_type">
-                            <small class="form-text text-muted">Enter outfits type.</small>
+                    <form method="POST" action="{{route('outfit.store')}}">
+                    <div class="form-group">    
+                        <label>Type:</label>
+                        <input type="text" class="form-control" name="outfit_type" value="{{old('outfit_type')}}">
+                        <small class="form-text text-muted">Enter outfits type.</small>
                     </div>
                     <div class="form-group">
                         <label>Color:</label>
-                        <input type="text" class="form-control" name="outfit_color">
+                        <input type="text" class="form-control" name="outfit_color" value="{{old('outfit_color')}}">
                         <small class="form-text text-muted">Which color.</small>
                     </div>
                     <div class="form-group">
                         <label>Size:</label>
-                        <input type="text" class="form-control" name="outfit_size">
+                        <input type="text" class="form-control" name="outfit_size" value="{{old('outfit_size')}}">
                         <small class="form-text text-muted">Outfit size.</small>
                     </div>
                     <div class="form-group">
                         <label>About:</label>
-                        <textarea name="outfit_about" class="form-control" id="summernote"></textarea>
+                        <textarea name="outfit_about" class="form-control" id="summernote" value="{{old('outfit_about')}}"></textarea>
                         <small class="form-text text-muted">About outfit.</small>
                     </div>
                     <div class="form-group">
-                        <select name="master_id" class="form-control">
+                        <select name="master_id" class="form-control" value="{{old('master_id')}}">
                             @foreach ($masters as $master)
                             <option value="{{$master->id}}">{{$master->name}} {{$master->surname}}</option>
                             @endforeach
