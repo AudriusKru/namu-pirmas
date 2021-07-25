@@ -10042,6 +10042,7 @@ fieldset {
   padding: 10px;
   margin: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
@@ -10063,9 +10064,26 @@ legend {
 
 sort-form {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 sort-form a {
   margin-left: 15px;
+}
+
+right-column {
+  width: 60%;
+  float: right;
+  padding: 60px;
+  background-color: #fff;
+  position: relative;
+}
+
+left-column {
+  width: 40%;
+  float: left;
+  padding: 60px;
+  background-color: #fff;
+  position: relative;
 }

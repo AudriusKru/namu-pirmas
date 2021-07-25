@@ -7,6 +7,7 @@
                 <div class="card-header">
 
                     <div class="subtitle">Sorting:
+                        <div class="left-column">
                         <form action="{{route('outfit.index')}}" method="get" class="sort-form">
                             <fieldset>
                                 <legend>Sort by:</legend>
@@ -33,7 +34,9 @@
                             <button type="submit" class="btn btn-primary">Sort</button>
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
                         </form>
-
+                        </div>
+                        </div>
+{{-- 
                         <form action="{{route('outfit.index')}}" method="get" class="sort-form">
                             <fieldset>
                                 <legend>Filter by:</legend>
@@ -50,8 +53,8 @@
                             </fieldset>
                             <button type="submit" class="btn btn-primary">Filter</button>
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
-                        </form>
-
+                        </form> --}}
+<div class="right-column">
                         <form action="{{route('outfit.index')}}" method="get" class="sort-form">
                             <fieldset>
                                 <legend>Search by type:</legend>
@@ -63,7 +66,7 @@
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
                         </form>
                     </div>
-                </div>
+                </div></div>
                 <div class="card-body">
                     <div class="subtitle">Outfits list:</div>
                     <ul class="list-group">
