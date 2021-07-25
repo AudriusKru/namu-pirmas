@@ -21,7 +21,9 @@ class OutfitController extends Controller
         // $outfits = Outfit::orderBy('size', 'desc')->get();
         $dir = 'asc';
         $sort = 'type';
+        $dewfaultMasters = 0;
         $masters = Master::all();
+        $s = '';
 
         if($request->sort_by && $request->dir) {
             if('type' == $request->sort_by && 'asc' == $request->dir) {
@@ -47,7 +49,15 @@ class OutfitController extends Controller
         // filtraimas
 
         elseif ($request->master_id){
+            $outfits = Outfit::where('master_id', (int)$request->master_id)->get();
+            $dewfaultMasters = (int)$request->master_id;
+        }
 
+        // paieska
+
+        elseif ($request->s){
+            $outfits = Outfit::where('type', 'like', '%' .$request->s)->get();
+            $dewfaultMasters = $request->s;
         }
 
         else {
@@ -59,7 +69,9 @@ class OutfitController extends Controller
             'outfits' => $outfits,
             'dir' => $dir,
             'sort' => $sort,
-            'masters' => $masters
+            'masters' => $masters,
+            'dewfaultMasters' => $dewfaultMasters,
+            's' => $s 
         ]);
     }
 

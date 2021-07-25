@@ -39,13 +39,25 @@
                                 <div class="form-group">
                                     <select name="master_id" class="form-control" value="{{old('master_id')}}">
                                         @foreach ($masters as $master)
-                                        <option value="{{$master->id}}">{{$master->name}} {{$master->surname}}</option>
+                                        <option value="{{$master->id}}" @if($dewfaultMasters==$master->id) selected @endif>
+                                            {{$master->name}} {{$master->surname}}
+                                        </option>
                                         @endforeach
                                     </select>
                                     <small class="form-text text-muted">Select Master from the list.</small>
-                                    </div>
+                                </div>
                             </fieldset>
                             <button type="submit" class="btn btn-primary">Filter</button>
+                            <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
+                        </form>
+                        <form action="{{route('outfit.index')}}" method="get" class="sort-form">
+                            <fieldset>
+                                <legend>Search by type:</legend>
+                                <div class="form-group">
+                                <input type="text" class="form-control" name="s" value="{{$s}}">
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="btn btn-primary">Search type</button>
                             <a href="{{route('outfit.index')}}" class="btn btn-primary">Clear</a>
                         </form>
                     </div>
