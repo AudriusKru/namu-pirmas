@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'MADA LARA')</title>
+    <title>@yield('title', 'zirgu lazybos')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -61,10 +61,10 @@
                                 Masters
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('master.index') }}">
+                                <a class="dropdown-item" href="{{route('horse.index') }}">
                                     Masters List
                                 </a>
-                                <a class="dropdown-item" href="{{route('master.create') }}">
+                                <a class="dropdown-item" href="{{route('horse.create') }}">
                                     New Master
                                 </a>
                             </div>
